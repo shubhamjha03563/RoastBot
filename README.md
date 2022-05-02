@@ -2,6 +2,11 @@
 
 A facebook messenger bot that can roast you sometimes. Please don't feel bad because it probably doesn't care.
 
+![op1](https://user-images.githubusercontent.com/62183815/166323107-388cb7dc-963d-417b-aacb-815263acea0d.gif)
+
+![op2](https://user-images.githubusercontent.com/62183815/166323208-f5ea9262-a9f3-4f66-8191-90f7401b3dd0.gif)
+
+
 ## Requirements
 
 1. You must have a facebook page. When you message your page, the bot will reply.
@@ -70,3 +75,4 @@ ngrok.exe http 5000
    { user: <user_id>, name: <user_name>, messages: [<list_of_users_messages>] }
   ]
   ```
+![op3](https://user-images.githubusercontent.com/62183815/166323239-73799489-1060-4aa4-b3b4-5d318f586766.gif)
