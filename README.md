@@ -54,3 +54,15 @@ ngrok.exe http 5000
 ```
 5. A url will be displayed inside the terminal. Something like this - http://127.0.0.1:4040 
 6. Open the url, and click on the link given on the webpage. Something like this - https://2402-e280-2146-a6d-2ad9.in.ngrok.io
+
+# API endpoints
+
+1. `localhost:3000/messages` that list all messages received from users
+2. `localhost:3000/messages/:id` to view single message by its ID
+3. `localhost:3000/summary` to view this data exact data
+  ```
+  [
+   { user: <user_id>, name: <user_name>, messages: [<list_of_users_messages>] },
+   { user: <user_id>, name: <user_name>, messages: [<list_of_users_messages>] }
+  ]
+  ```
