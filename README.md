@@ -34,6 +34,10 @@ npm install
 2. Then type these commands:
 ```
 npm start
+```
+3. Again navigate to the project folder in a new terminal (Don't close the previous one).
+4. Then type these commands:
+```
 cd api
 npm start
 ```
