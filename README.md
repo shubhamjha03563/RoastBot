@@ -18,7 +18,7 @@ A facebook messenger bot that can roast you sometimes. Please don't feel bad bec
 ## Usage
 
 1. Open ".env" file and update the values/ settings to your own facebook credentials.
-2. Open "/api/.env" and provide database credentials.  
+2. Open "/api/config/.env" and provide database credentials.  
 3. Install the dependencies (Refer to 'Install Dependencies' given below)
 4. Start the app (Refer to 'Run App' given below)
 5. You are good to go and now you can message your bot by visiting your page and clicking on the message button.
