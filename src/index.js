@@ -4,8 +4,10 @@ const { saveMessage, updateUser } = require('../helper/saveData.js');
 const replies = require('../helper/replies');
 
 let previousText = ''; // keeping track of questions asked
+let username = ''; // for username reference, fetching takes time
 
 module.exports = async function App(context) {
+  // console.log(previousText);
   let messageText = context.event.text;
   let options = {};
   let replyText = replies.defaultText; // default text if anything goes wrong
@@ -20,7 +22,8 @@ module.exports = async function App(context) {
   }
   // User provides his/ her name
   else if (previousText == replies.askName) {
-    replyText = messageText;
+    username = messageText;
+    replyText = replies.askDaysLeft(username);
     options = {
       quickReplies: [
         {
@@ -37,32 +40,46 @@ module.exports = async function App(context) {
     };
     await updateUser(context);
   }
-  // when user gives birthdate, then it's format is checked
-  else if (context.event.isText && !!Date.parse(messageText)) {
-    const birthDate = new Date(messageText);
-    let daysLeft = daysUntilNext(birthDate.getMonth() + 1, birthDate.getDate());
-    replyText = replies.tellDaysLeft(daysLeft);
+  // when user gives birthdate
+  else if (previousText == replies.askBd) {
+    // check birthdate format
+    if (!context.event.isText || !!!Date.parse(messageText)) {
+      replyText = replies.wrongDate();
+    } else {
+      const birthDate = new Date(messageText);
+      let daysLeft = daysUntilNext(
+        birthDate.getMonth() + 1,
+        birthDate.getDate()
+      );
+      replyText = replies.tellDaysLeft(daysLeft);
+    }
   }
   // asking user's birthdate
-  else if (
-    (context.event.isPayload && context.event.payload === 'daysLeftYes') ||
-    isPositiveSentiment(messageText)
-  ) {
-    replyText = replies.askBd;
-  }
-  // User refuses to know days left for next birthday
-  else if (
-    (context.event.isPayload && context.event.payload === 'daysLeftNo') ||
-    !isPositiveSentiment(messageText)
-  ) {
-    replyText = replies.goodbye;
+  else if (previousText === replies.askDaysLeft(username)) {
+    if (
+      (context.event.isPayload && context.event.payload === 'daysLeftYes') ||
+      isPositiveSentiment(messageText)
+    ) {
+      replyText = replies.askBd;
+    }
+    // User refuses to know days left for next birthday
+    else if (
+      (context.event.isPayload && context.event.payload === 'daysLeftNo') ||
+      !isPositiveSentiment(messageText)
+    ) {
+      replyText = replies.goodbyeRude;
+    }
+  } else if (messageText.toLowerCase() === 'bye') {
+    replyText = replies.goodByePolite;
+  } else {
+    replyText = replies.wrongInput;
   }
 
   // send replyText
   if (Object.keys(options).length === 0) {
     context.sendText(replyText);
   } else {
-    await context.sendText(replies.askDaysLeft(replyText), options);
+    await context.sendText(replyText, options);
   }
 
   previousText = replyText;

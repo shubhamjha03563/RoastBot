@@ -28,6 +28,8 @@ exports.isPositiveSentiment = (str) => {
 
   const sentimentCount = analyzer.getSentiment(stopWordsRemoved);
   // console.log(sentimentCount);
-  if (sentimentCount >= 1) return true; // positive
+  if (sentimentCount >= 1) {
+    return true; // positive
+  }
   return false;
 };
