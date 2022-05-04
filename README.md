@@ -51,6 +51,7 @@ npm start
 
 1. Click on Get Started and give the answers accordingly.
 2. If you want to restart the conversation, send hi or Hi.
+3. Send bye or Bye to end the conversation.
 
 ## NGROK Setup
 
