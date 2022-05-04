@@ -23,6 +23,7 @@ module.exports = {
   initialState: {},
   channels: {
     messenger: {
+      fields: ['messages', 'messaging_postbacks'],
       enabled: true,
       path: '/webhooks/messenger',
       pageId: process.env.MESSENGER_PAGE_ID,
