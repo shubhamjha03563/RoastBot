@@ -14,14 +14,11 @@ module.exports = async function App(context) {
 
   // user starts the conversation
   if (
-    (context.event.isPayload && context.event.payload === 'GET_STARTED') ||
-    messageText === 'Hi' ||
-    messageText === 'hi'
-  ) {
+    (context.event.isPayload && context.event.payload === 'GET_STARTED') || messageText.toLowerCase() === 'hi') {
     replyText = replies.askName;
   }
   // User provides his/ her name
-  else if (previousText == replies.askName) {
+  else if (previousText === replies.askName) {
     username = messageText;
     replyText = replies.askDaysLeft(username);
     options = {
@@ -41,7 +38,7 @@ module.exports = async function App(context) {
     await updateUser(context);
   }
   // when user gives birthdate
-  else if (previousText == replies.askBd) {
+  else if (previousText === replies.askBd) {
     // check birthdate format
     if (!context.event.isText || !!!Date.parse(messageText)) {
       replyText = replies.wrongDate();
