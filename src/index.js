@@ -4,7 +4,7 @@ const { saveMessage, updateUser } = require('../helper/saveData.js');
 const replies = require('../helper/replies');
 
 let previousText = ''; // keeping track of questions asked
-let username = ''; // for username reference, fetching takes time
+let username = ''; // for quick username reference
 
 module.exports = async function App(context) {
   // console.log(previousText);
