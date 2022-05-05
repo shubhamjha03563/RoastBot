@@ -1,6 +1,6 @@
 # Roast Bot
 
-A facebook messenger bot that can roast you sometimes. Please don't feel bad because it probably doesn't care.
+A facebook messenger bot that can roast you sometimes. Please don't feel bad because it probably doesn't care.😜
 
 ![op1](https://user-images.githubusercontent.com/62183815/166323107-388cb7dc-963d-417b-aacb-815263acea0d.gif)
 
@@ -36,7 +36,7 @@ npm install
 ## Run App
 
 1. First navigate to the project folder in a new terminal.
-2. Then type these commands:
+2. Then type this command:
 ```
 npm start
 ```
@@ -67,9 +67,9 @@ ngrok.exe http 5000
 
 ## API endpoints
 
-1. `localhost:3000/messages` that list all messages received from users
-2. `localhost:3000/messages/:id` to view single message by its ID
-3. `localhost:3000/summary` to view this data exact data
+1. GET  'localhost:3000/messages' - list all messages received from users
+2. GET  'localhost:3000/messages/:id' - view a single message by its ID
+3. GET  'localhost:3000/summary' - view data in the format given below 👇
   ```
   [
    { user: <user_id>, name: <user_name>, messages: [<list_of_users_messages>] },
