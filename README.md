@@ -2,6 +2,8 @@
 
 A facebook messenger bot that can roast you sometimes. Please don't feel bad because it probably doesn't care.😜
 
+(This app also contains Rest APIs as a microservice to handle and maintain the APIs separately.)
+
 ![op1](https://user-images.githubusercontent.com/62183815/166323107-388cb7dc-963d-417b-aacb-815263acea0d.gif)
 
 ![op2](https://user-images.githubusercontent.com/62183815/166323208-f5ea9262-a9f3-4f66-8191-90f7401b3dd0.gif)
@@ -65,7 +67,7 @@ ngrok.exe http 5000
 5. A url will be displayed inside the terminal. Something like this - http://127.0.0.1:4040 
 6. Open the url, and click on the link given on the webpage. Something like this - https://2402-e280-2146-a6d-2ad9.in.ngrok.io
 
-## API endpoints
+## API endpoints (Rest API as a microservice for separate handling of APIs)
 
 1. GET  'localhost:3000/messages' - list all messages received from users
 2. GET  'localhost:3000/messages/:id' - view a single message by its ID
